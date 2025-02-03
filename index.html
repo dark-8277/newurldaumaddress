@@ -48,6 +48,10 @@
             } else if (data.autoJibunAddress == "") {
               jibunAddress = data.jibunAddress;
             }
+            // 안드로이드 WebView로 데이터 전달
+            if (window.AndroidInterface) {
+                window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode);
+            }
 
             var postData = {
               roadAddress: data.roadAddress,
