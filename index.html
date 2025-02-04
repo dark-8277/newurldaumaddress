@@ -51,21 +51,21 @@
             } else if (data.autoJibunAddress == "") {
               jibunAddress = data.jibunAddress;
             } else if (data.city = "") {
-              city = address.region_1depth_name;
-            // } else if (data.district == "" ) {
-            //   district = address.region_2depth_name;
+              city = data.sido;
+            } else if (data.district == "" ) {
+              district = data.sigungu;
             }
             // 안드로이드 WebView로 데이터 전달
             if (window.AndroidInterface) {
-                window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode, data);
+                window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode, data.sido, data.sigungu);
             }
 
             var postData = {
               roadAddress: data.roadAddress,
               jibunAddress: jibunAddress,
               zonecode: data.zonecode,
-              city: city
-              // district: district
+              city: data.sido,
+              district: data.sigungu
             };
             window.postMessageToiOS(postData);
           },
