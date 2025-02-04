@@ -57,16 +57,16 @@
             }
             // 안드로이드 WebView로 데이터 전달
             if (window.AndroidInterface) {
-                window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode);
-                 // window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode, data.sido, data.sigungu);
+                // window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode);
+                 window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode, data.sido, data.sigungu);
             }
 
             var postData = {
               roadAddress: data.roadAddress,
               jibunAddress: jibunAddress,
               zonecode: data.zonecode,
-              // city: data.sido,
-              // district: data.sigungu
+              city: data.sido,
+              district: data.sigungu
             };
             window.postMessageToiOS(postData);
           },
