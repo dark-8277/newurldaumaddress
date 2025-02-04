@@ -44,16 +44,16 @@
             var jibunAddress = "";
             var address = data.documents[0].address;
             var city = "";  // 시 (서울특별시)
-            var district = address.region_2depth_name;  // 구 (강남구)
+            var district = "";  // 구 (강남구)
             
             if (data.jibunAddress == "") {
               jibunAddress = data.autoJibunAddress;
             } else if (data.autoJibunAddress == "") {
               jibunAddress = data.jibunAddress;
-            } else if (data.city) {
+            } else if (data.city = "") {
               city = address.region_1depth_name;
-            } else if (data.) {
-              
+            } else if (data.district == "" ) {
+              district = address.region_2depth_name;
             }
             // 안드로이드 WebView로 데이터 전달
             if (window.AndroidInterface) {
@@ -64,6 +64,8 @@
               roadAddress: data.roadAddress,
               jibunAddress: jibunAddress,
               zonecode: data.zonecode,
+              city: city
+              district: district
             };
             window.postMessageToiOS(postData);
           },
