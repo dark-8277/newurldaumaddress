@@ -57,7 +57,7 @@
             }
             // 안드로이드 WebView로 데이터 전달
             if (window.AndroidInterface) {
-                window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode, city);
+                window.AndroidInterface.sendAddress(data.roadAddress, jibunAddress, data.zonecode, data);
             }
 
             var postData = {
