@@ -42,7 +42,7 @@
         new daum.Postcode({
           oncomplete: function (data) {
             var jibunAddress = "";
-            // var address = data.documents[0].address;
+            var address = data.documents[0].address;
             var city = "";
             var district = "";
             
@@ -50,8 +50,8 @@
               jibunAddress = data.autoJibunAddress;
             } else if (data.autoJibunAddress == "") {
               jibunAddress = data.jibunAddress;
-            // } else if (data.city = "") {
-            //   city = address.region_1depth_name;
+            } else if (data.city = "") {
+              city = address.region_1depth_name;
             // } else if (data.district == "" ) {
             //   district = address.region_2depth_name;
             }
@@ -64,7 +64,7 @@
               roadAddress: data.roadAddress,
               jibunAddress: jibunAddress,
               zonecode: data.zonecode,
-              // city: city
+              city: city
               // district: district
             };
             window.postMessageToiOS(postData);
